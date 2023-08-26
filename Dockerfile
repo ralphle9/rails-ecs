@@ -1,5 +1,5 @@
 # gets the docker image of ruby 2.5 and lets us build on top of that
-FROM ruby:2.5.1-slim
+FROM ruby:2.7.8-slim
 
 # install rails dependencies
 RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs libsqlite3-dev
@@ -13,6 +13,7 @@ COPY Gemfile /myapp/Gemfile
 COPY Gemfile.lock /myapp/Gemfile.lock
 
 # Run bundle install to install gems inside the gemfile
+RUN gem install bundler:1.17.1
 RUN bundle install
 
 # Copy the whole app
