@@ -18,4 +18,6 @@ RUN bundle install
 
 # Copy the whole app
 COPY . /myapp
-
+RUN chmod +x /myapp/docker-entrypoint.sh
+ENTRYPOINT ["/myapp/docker-entrypoint.sh"]
+EXPOSE 3000
