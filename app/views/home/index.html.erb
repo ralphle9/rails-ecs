@@ -1,18 +1,22 @@
-Home Page:
+<div style="margin: auto; width: 600px">
+  <h3>We have new viewers:</h3>
+  <table>
+    <thead>
+      <tr>
+        <th style="display: inline-block; margin: 20px; width: 50px">ID</th>
+        <th style="display: inline-block; margin: 20px; width: 50px">IP</th>
+        <th style="display: inline-block; margin: 20px; width: 150px">Viewed at</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @viewers.each_with_index do |viewer, index| %>
+        <tr>
+          <td style="display: inline-block; margin: 20px; width: 50px"><%= viewer.id %></td>
+          <td style="display: inline-block; margin: 20px; width: 50px"><%= viewer.ip_address %></td>
+          <td style="display: inline-block; margin: 20px; width: 200px"><%= viewer.created_at %></td>
+        </tr>
+      <% end %>
+    <tbody>
+  </table>
 
-<%= @message %>
-
-<% @posts.each do |post| %>
-  <h1> <%= post.title %> </h1>
-  <h2> <%= post.author.name %> </h2>
-  <p> <%= post.body %>
-
-  <br>
-
-  <p> 
-    <%= link_to "Like", increment_async_path(post_id: post.id) %>
-
-    Likes:
-    <%= post.likes_count %> 
-  </p>
-<% end %>
+</div>
